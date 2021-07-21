@@ -1,6 +1,7 @@
 # cobrowse-sdk-js-examples
 
 ## Standalone support code example
+Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/standalone-support-code.html
 
 1. Clone the repo, and open standalone-support-code.html in your browser
 2. Replace CobrowseIO.license with your license key (register a new account at https://cobrowse.io/register)
