@@ -8,3 +8,4 @@ Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/standalone-su
 3. Modify the button's background-color, border-color, the Cobrowse.io logo, or make any other changes you'd like. 
 4. Deploy as a standalone page, or embed similar html, css, and javascript in your site.
 
+
