@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Full Device By Default Example</title>
+    <script>
+        (function (w, t, c, p, s, e) {
+            p = new Promise(function (r) {
+                w[c] = {
+                    client: function () {
+                        if (!s) {
+                            s = document.createElement(t); s.src = 'https://js.cobrowse.io/CobrowseIO.js'; s.async = 1;
+                            e = document.getElementsByTagName(t)[0]; e.parentNode.insertBefore(s, e); s.onload = function () { r(w[c]); };
+                        } return p;
+                    }
+                };
+            });
+        })(window, 'script', 'CobrowseIO');
+
+        CobrowseIO.license = "put your license key here";
+        CobrowseIO.client().then(function () {
+            // override the default session confirmation prompt
+            CobrowseIO.confirmSession = function (session) {
+                // instead of a session confirmation prompt we will switch
+                // the session into full device mode
+                return session.setFullDevice(true);
+            }
+            CobrowseIO.start();
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Cobrowse.io Full Device Example</h1>
+    <p>This page will allow starting a session in full device by default.</p>
+</body>
+
+</html>
