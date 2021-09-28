@@ -2,6 +2,7 @@
 
 ## Standalone support code example
 Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/standalone-support-code.html
+
 Documentation at https://docs.cobrowse.io/sdk-features/6-digit-codes
 
 1. Clone the repo, and open standalone-support-code.html in your browser.
@@ -11,6 +12,7 @@ Documentation at https://docs.cobrowse.io/sdk-features/6-digit-codes
 
 ## Full device mode by default
 Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/full-device-by-default.html
+
 Documentation at https://docs.cobrowse.io/sdk-features/full-device-capabilities
 
 1. Clone the repo, and open full-device-by-default.html in your browser.
@@ -20,6 +22,7 @@ Documentation at https://docs.cobrowse.io/sdk-features/full-device-capabilities
 
 ## UI Customization (translation)
 Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/message-translation.html
+
 Documentation at https://docs.cobrowse.io/sdk-features/customize-the-interface
 
 1. Clone the repo, and open message-translation.html in your browser.
@@ -29,6 +32,7 @@ Documentation at https://docs.cobrowse.io/sdk-features/customize-the-interface
 
 ## Cross document iframes
 Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/cross-document-iframe-parent.html
+
 Documentation at https://docs.cobrowse.io/sdk-features/advanced-features/web/cross-document-iframes
 
 1. Clone the repo, and open cross-document-iframe-parent.html in your browser.
