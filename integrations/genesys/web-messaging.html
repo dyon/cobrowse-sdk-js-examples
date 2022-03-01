@@ -8,11 +8,12 @@
     e=document.getElementsByTagName(t)[0];e.parentNode.insertBefore(s,e);s.onload=function()
     {r(w[c]);};}return p;}};});})(window,'script','CobrowseIO');
 
-    //CobrowseIO.license = "trial";
-    CobrowseIO.api = "http://localhost"
-    CobrowseIO.license = "ALKb4VRsEsywew";   
+    // CobrowseIO.api = "http://localhost"
+    // CobrowseIO.license = "ALKb4VRsEsywew";
+    CobrowseIO.license = "trial";
+       
     CobrowseIO.client().then(function(){
-        CobrowseIO.start({allowIFrameStart:true});
+        CobrowseIO.start();
     });
 
     // generateSupportCode();
