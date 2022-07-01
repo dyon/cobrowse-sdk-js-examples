@@ -20,6 +20,15 @@ Documentation at https://docs.cobrowse.io/sdk-features/full-device-capabilities
 3. Begin a session to see the functionality, edit consent requests and other UI as needed.
 4. Deploy as a standalone page, or embed similar html, css, and javascript in your site.
 
+## Full device custom consent prompt
+Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/full-device-custom-consent.html
+
+Documentation at https://docs.cobrowse.io/sdk-features/customize-the-interface/full-device-consent-dialog
+
+1. Clone the repo, and open full-device-custom-consent.html in your browser.
+2. Replace CobrowseIO.license with your license key (register a new account at https://cobrowse.io/register).
+3. Deploy as a standalone page, or embed similar html, css, and javascript in your site.
+
 ## UI Customization (translation)
 Demo page at https://cobrowseio.github.io/cobrowse-sdk-js-examples/message-translation.html
 
