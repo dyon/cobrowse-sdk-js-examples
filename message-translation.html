@@ -63,7 +63,7 @@
             CobrowseIO.client().then(function () {
                 // create a code a display it to the user
                 CobrowseIO.createSessionCode().then(function (code) {
-                    new Alert().show("Code d'Assistance", "Votre Code d'Assistance c'est " + code);
+                    new Alert().show("Code d'Assistance", "Donnez ce numéro à votre assistant " + code);
                 });
             });
         }
@@ -104,14 +104,14 @@
 
         // Integration with Cobrowse
         CobrowseIO.confirmSession = function () {
-            return new Consent().show('Demande de session', 'Partagez-vous votre écran?');
+            return new Consent().show('Demande de scéance', 'Partagez-vous votre écran?');
         }
 
         // Active session indicator customization
         CobrowseIO.client().then(function () {
             var button = document.createElement('div');
             button.className = '__cbio_ignored';
-            button.textContent = 'Terminez la session';
+            button.textContent = 'Terminez la scéance';
             button.style.fontFamily = 'sans-serif';
             button.style.padding = '10px 13px';
             button.style.fontSize = '13px';
