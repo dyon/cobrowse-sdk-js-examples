@@ -21,9 +21,10 @@
         })(window, 'script', 'CobrowseIO');
         CobrowseIO.trustedOrigins = [
             'https://cdpn.io', // codepen hosted webpages
-            'https://cobrowse-sdk-js-examples.cbrws.io' // hosted example webpage
+            'https://cobrowse-sdk-js-examples.cbrws.io', // cobrowse.io hosted example webpage, change this to your domain
+            'http://localhost' // localhost can be used for local testing
         ];
-        CobrowseIO.license = "trial";
+                                            CobrowseIO.license = "trial"; // change to your license key
         CobrowseIO.client().then(function () {
             CobrowseIO.start();
         });
@@ -32,9 +33,11 @@
 
 <body>
     <h1>Cobrowse.io Cross Domain Example</h1>
-    <p>This page will allow sessions to continue to:
+    <p>This page will allow sessions to continue to pages hosted on codepen (cdpn.io) and localhost. Follow the instructions
+        in the README to try it yourself!
     <ul>
-        <li> <a href='https://codepen.io/HGray384/full/qBoOrZL'>https://codepen.io/HGray384/full/qBoOrZL</a></li>
+        <li> (Optional) REPLACE WITH YOUR DOMAIN: <a
+                href='https://codepen.io/HGray384/full/qBoOrZL'>https://codepen.io/HGray384/full/qBoOrZL</a></li>
     </ul>
     </p>
 </body>
