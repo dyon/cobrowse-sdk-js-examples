@@ -44,6 +44,15 @@ Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/cross-domain-session.htm
 
 Documentation at [https://docs.cobrowse.io/sdk-features/advanced-features/web/cross-domain-session-support](https://docs.cobrowse.io/sdk-features/advanced-features/web/cross-domain-session-support)
 
+1. Clone the repo.
+2. Create a fork of (or edit) the codepen here: [https://codepen.io/HGray384/pen/qBoOrZL?editors=1111](https://codepen.io/HGray384/pen/qBoOrZL?editors=1111).
+3. Replace CobrowseIO.license in **both** ./cross-domain-session.html **and** your forked codepen with your license key (register a new account at [https://cobrowse.io/register](https://cobrowse.io/register)).
+4. Serve the page ./cross-domain-session.html on localhost and open it in the same browser as your codepen example.
+5. Begin a session on one of the webpages. As you switch between the webpages, e.g. by switching across tabs, the session continues. 
+6. (Optional). Replace the hyperlinks in the example pages with your domains to simulate crossing domains using a hyperlink. 
+
+You can also reproduce this example with your own domain. Just add it to the trustedOrigins parameter on all webpages in your example. 
+
 ## Cross document iframes
 Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/cross-document-iframe-parent.html](https://cobrowse-sdk-js-examples.cbrws.io/cross-document-iframe-parent.html)
 
