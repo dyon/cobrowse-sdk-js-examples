@@ -39,6 +39,11 @@ Documentation at [https://docs.cobrowse.io/sdk-features/customize-the-interface]
 3. Begin a session and modify the UI as needed. Translate the French text into the language/verbage of your choice. 
 4. Deploy as a standalone page, or embed similar html, css, and javascript in your site.
 
+## Cross domain sessions
+Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/cross-domain-session.html](https://cobrowse-sdk-js-examples.cbrws.io/cross-domain-session.html)
+
+Documentation at [https://docs.cobrowse.io/sdk-features/advanced-features/web/cross-domain-session-support](https://docs.cobrowse.io/sdk-features/advanced-features/web/cross-domain-session-support)
+
 ## Cross document iframes
 Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/cross-document-iframe-parent.html](https://cobrowse-sdk-js-examples.cbrws.io/cross-document-iframe-parent.html)
 
