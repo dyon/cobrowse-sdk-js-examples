@@ -63,7 +63,7 @@
             CobrowseIO.client().then(function () {
                 // create a code a display it to the user
                 CobrowseIO.createSessionCode().then(function (code) {
-                    new Alert().show("Code d'Assistance", "Donnez ce numéro à votre assistant " + code);
+                    new Alert().show("Code d'Assistance", "Donnez ce numéro à votre agent de soutien " + code);
                 });
             });
         }
@@ -78,8 +78,8 @@
           <div style="text-align:center; margin-top:10px; margin-bottom:20px"><b>'+ title + '</b></div>\
           <div>'+ description + '</div>\
           <div style="float:right; margin-top:40px; color:rgb(0, 122, 255);">\
-            <a class="cobrowse-deny" style="cursor:pointer; padding:10px;">Refusez</a>\
-            <a class="cobrowse-allow" style="cursor:pointer; padding:10px; font-weight: bold;">Acceptez</a>\
+            <a class="cobrowse-deny" style="cursor:pointer; padding:10px;">Refuser</a>\
+            <a class="cobrowse-allow" style="cursor:pointer; padding:10px; font-weight: bold;">Autoriser</a>\
           </div>\
         </div>\
       </div>\
@@ -104,14 +104,14 @@
 
         // Integration with Cobrowse
         CobrowseIO.confirmSession = function () {
-            return new Consent().show('Demande de scéance', 'Partagez-vous votre écran?');
+            return new Consent().show('Demande de soutien', 'Un agent de soutien souhaiterait temporairement utiliser cette page Web avec vous. Donnez-vous votre autorisation ?');
         }
 
         // Active session indicator customization
         CobrowseIO.client().then(function () {
             var button = document.createElement('div');
             button.className = '__cbio_ignored';
-            button.textContent = 'Terminez la scéance';
+            button.textContent = 'Terminer la session de Cobrowse';
             button.style.fontFamily = 'sans-serif';
             button.style.padding = '10px 13px';
             button.style.fontSize = '13px';
