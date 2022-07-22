@@ -51,7 +51,7 @@ Documentation at [https://docs.cobrowse.io/sdk-features/advanced-features/web/cr
 5. Begin a session on one of the webpages. As you switch between the webpages, e.g. by switching across tabs, the session continues. 
 6. (Optional). Replace the hyperlinks in the example pages with your domains to simulate crossing domains using a hyperlink. 
 
-You can also reproduce this example with your own domain. Just add it to the trustedOrigins parameter on all webpages in your example. 
+You can also reproduce this example with your own domain. Make sure to update the trustedOrigins parameter on all webpages accordingly. 
 
 ## Cross document iframes
 Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/cross-document-iframe-parent.html](https://cobrowse-sdk-js-examples.cbrws.io/cross-document-iframe-parent.html)
