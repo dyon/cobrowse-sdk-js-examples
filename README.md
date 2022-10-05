@@ -10,6 +10,16 @@ Documentation at [https://docs.cobrowse.io/sdk-features/6-digit-codes](https://d
 3. Modify the button's background-color, border-color, the Cobrowse.io logo, or make any other changes you'd like. 
 4. Deploy as a standalone page, or embed similar html, css, and javascript in your site.
 
+## Support code examples
+Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/support-code-examples.html](https://cobrowse-sdk-js-examples.cbrws.io/support-code-examples.html)
+
+Documentation at [https://docs.cobrowse.io/sdk-features/6-digit-codes](https://docs.cobrowse.io/sdk-features/6-digit-codes)
+
+1. Clone the repo, and open support-code-examples.html in your browser.
+2. Replace CobrowseIO.license with your license key (register a new account at [https://cobrowse.io/register](https://cobrowse.io/register)).
+3. Modify the styling, add your own way to display the code, or make any other changes you'd like. 
+4. Embed similar html, css, and javascript in your site.
+
 ## Full device mode by default
 Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/full-device-by-default.html](https://cobrowse-sdk-js-examples.cbrws.io/full-device-by-default.html)
 
