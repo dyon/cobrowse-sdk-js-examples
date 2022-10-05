@@ -11,6 +11,9 @@ Documentation at [https://docs.cobrowse.io/sdk-features/6-digit-codes](https://d
 4. Deploy as a standalone page, or embed similar html, css, and javascript in your site.
 
 ## Support code examples
+> **Note**
+> You should validate the browser (Chrome, Firefox, etc.) and platform (desktop web, mobile web, etc.) compatibility of your support code logic. 
+
 Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/support-code-examples.html](https://cobrowse-sdk-js-examples.cbrws.io/support-code-examples.html)
 
 Documentation at [https://docs.cobrowse.io/sdk-features/6-digit-codes](https://docs.cobrowse.io/sdk-features/6-digit-codes)
