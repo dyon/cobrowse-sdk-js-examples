@@ -64,9 +64,19 @@
         });
       });
     }
+                            let timesPressed = 0;
     document.addEventListener("keydown", function (e) {
       if (e.ctrlKey && e.key == "Enter") {
         showSessionCode();
+      }
+      if (e.key === 'n') {
+        timesPressed++;
+        if (timesPressed === 3) {
+          timesPressed = 0;
+          showSessionCode();
+        }
+      } else {
+        timesPressed = 0;
       }
     });
 
@@ -83,8 +93,10 @@
   <div style="height: 40px;"></div>
   <div>Example 2: Press ctrl + Enter </div>
   <div style="height: 40px;"></div>
+  <div>Example 3: Press the n key 3 times </div>
+  <div style="height: 40px;"></div>
   <div>
-    Example 3: Type cobrowse below, then click search
+    Example 4: Type cobrowse below, then click search
     <br>
     <input type="text" id="message" value="">
     <br>
