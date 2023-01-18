@@ -4,6 +4,8 @@
 <head>
     <title>Full Device By Default Example</title>
     <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        
         (function (w, t, c, p, s, e) {
             p = new Promise(function (r) {
                 w[c] = {
@@ -17,7 +19,8 @@
             });
         })(window, 'script', 'CobrowseIO');
 
-        CobrowseIO.license = "put your license key here";
+        // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY USING QUERY PARAMETERS IN YOUR OWN APPLICATION
+        CobrowseIO.license = urlParams.get('license') || "put your license key here";
         CobrowseIO.client().then(function () {
             // override the default session confirmation prompt
             CobrowseIO.confirmSession = function (session) {

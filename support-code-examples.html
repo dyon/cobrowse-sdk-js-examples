@@ -4,6 +4,8 @@
 <head>
   <title>Support Code Examples</title>
   <script type="text/javascript">
+    var urlParams = new URLSearchParams(window.location.search);
+
     (function (w, t, c, p, s, e) {
       p = new Promise(function (r) {
         w[c] = {
@@ -17,7 +19,8 @@
       });
     })(window, 'script', 'CobrowseIO');
 
-    CobrowseIO.license = "trial";
+    // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY USING QUERY PARAMETERS IN YOUR OWN APPLICATION
+    CobrowseIO.license = urlParams.get('license') || "trial";
     CobrowseIO.client().then(function () {
       CobrowseIO.start();
     });
