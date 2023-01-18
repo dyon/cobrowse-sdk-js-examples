@@ -1,5 +1,9 @@
 # cobrowse-sdk-js-examples
 
+All demo pages support the ability to pass your license key into them by appending a `?license=XXX` query paramter to the end of the demo page URL.
+
+For security reasons **do not** allow for the license key to be set via a query parameter in your own application.
+
 ## Standalone support code example
 Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/standalone-support-code.html](https://cobrowse-sdk-js-examples.cbrws.io/standalone-support-code.html)
 

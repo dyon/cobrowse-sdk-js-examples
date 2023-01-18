@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cross domain cobrowse example</title>
     <script>
+        var urlParams = new URLSearchParams(window.location.search);
+
         (function (w, t, c, p, s, e) {
             p = new Promise(function (r) {
                 w[c] = {
@@ -26,7 +28,8 @@
             'http://localhost' // localhost can be used for local testing
         ];
 
-                                            CobrowseIO.license = "trial"; // change to your license key
+        // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY USING QUERY PARAMETERS IN YOUR OWN APPLICATION
+        CobrowseIO.license = urlParams.get('license') || "trial"; // change to your license key
         CobrowseIO.client().then(function () {
             CobrowseIO.start();
         });
