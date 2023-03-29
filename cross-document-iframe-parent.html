@@ -22,8 +22,9 @@
       });
     })(window, 'script', 'CobrowseIO');
 
-    // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY USING QUERY PARAMETERS IN YOUR OWN APPLICATION
-    CobrowseIO.license = urlParams.get('license') || "trial";
+    // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY OR API USING QUERY PARAMETERS IN YOUR OWN APPLICATION
+    CobrowseIO.license = urlParams.get('license') || 'trial'; // change to your license key
+    CobrowseIO.api = urlParams.get('api') || 'https://api.cobrowse.io';
     CobrowseIO.client().then(function () {
       CobrowseIO.start({ register: false });
     });

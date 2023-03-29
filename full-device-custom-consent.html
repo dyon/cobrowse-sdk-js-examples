@@ -38,8 +38,9 @@
             if (document.body) document.body.appendChild(container);
           }.bind(this));        
       }
-      // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY USING QUERY PARAMETERS IN YOUR OWN APPLICATION
-      CobrowseIO.license = urlParams.get('license') || "trial"; 
+      // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY OR API USING QUERY PARAMETERS IN YOUR OWN APPLICATION
+      CobrowseIO.license = urlParams.get('license') || 'trial'; // change to your license key
+      CobrowseIO.api = urlParams.get('api') || 'https://api.cobrowse.io';
       CobrowseIO.client().then(function(){
         CobrowseIO.confirmSession = function (session) {
                 // instead of a session confirmation prompt we will switch
