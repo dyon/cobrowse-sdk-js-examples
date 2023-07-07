@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>WebRTC Camera</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+
+    (function(w,t,c,p,s,e){p=new Promise(function(r){w[c]={client:function(){if(!s){
+    s=document.createElement(t);s.src='https://js.cobrowse.io/CobrowseIO.js';s.async=1;
+    e=document.getElementsByTagName(t)[0];e.parentNode.insertBefore(s,e);s.onload=function()
+    {r(w[c]);};}return p;}};});})(window,'script','CobrowseIO');
+
+    // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY OR API USING QUERY PARAMETERS IN YOUR OWN APPLICATION
+    CobrowseIO.license = urlParams.get('license') || 'trial'; // change to your license key
+    CobrowseIO.api = urlParams.get('api') || 'https://api.cobrowse.io';
+    CobrowseIO.client().then(() => {
+      CobrowseIO.start();
+    });
+  </script>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 2%;
+      color: #505050;
+    }
+
+    #canvas {
+      width: calc(100% - 40px);
+      margin: 20px;
+      flex: 1;
+      object-fit: cover;
+      max-height: calc(100% - 200px);
+    }
+
+    .button-container button {
+      margin: 10px;
+    }
+
+    #cameraButton,
+    #switchButton {
+      padding: 15px 25px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgb(97, 0, 255);
+      color: #ffffff;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+
+    #cameraButton:hover,
+    #switchButton:hover {
+      background-color: rgb(75, 0, 200);
+    }
+
+    #switchButton {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>WebRTC Camera</h1>
+  <div class="button-container">
+    <div class="button-wrapper">
+      <button id="cameraButton">Start Camera</button>
+      <button id="switchButton">Switch Camera</button>
+    </div>
+  </div>
+  <canvas id="canvas" data-framecount="0"></canvas>
+
+  <script>
+    // Check for browser compatibility
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      const videoElement = document.createElement('video');
+      videoElement.setAttribute('playsinline', '');
+      videoElement.style.display = 'none';
+
+      const canvas = document.getElementById('canvas');
+      const context = canvas.getContext('2d');
+
+      let currentStream;
+      let frameCount = 0;
+
+      const cameraButton = document.getElementById('cameraButton');
+      const switchButton = document.getElementById('switchButton');
+
+      cameraButton.addEventListener('click', () => {
+        if (!currentStream) {
+          navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+            .then((stream) => {
+              videoElement.srcObject = stream;
+              videoElement.play();
+              currentStream = stream;
+              cameraButton.textContent = "Stop Camera";
+              switchButton.style.display = "inline-block";
+
+              videoElement.onloadedmetadata = () => {
+                canvas.width = videoElement.videoWidth;
+                canvas.height = videoElement.videoHeight;
+
+                const drawVideoFrame = () => {
+                  context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                  requestAnimationFrame(drawVideoFrame);
+                };
+
+                drawVideoFrame();
+              };
+            })
+            .catch((error) => {
+              console.error('Error accessing the camera: ', error);
+            });
+        } else {
+          // Stop the current camera stream
+          currentStream.getTracks().forEach((track) => {
+            track.stop();
+          });
+
+          currentStream = null;
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          cameraButton.textContent = "Start Camera";
+          switchButton.style.display = "none";
+        }
+      });
+
+      switchButton.addEventListener('click', () => {
+        if (currentStream) {
+          const tracks = currentStream.getTracks();
+
+          // Stop the current camera stream
+          tracks.forEach((track) => {
+            track.stop();
+          });
+
+          // Get the current facing mode of the video track
+          const currentFacingMode = tracks[0].getSettings().facingMode;
+
+          // Define the new facing mode to switch to
+          const newFacingMode = (currentFacingMode === 'environment') ? 'user' : 'environment';
+
+          // Create the new constraints object with the new facing mode
+          const constraints = { video: { facingMode: newFacingMode } };
+
+          // Start the new camera stream with the updated constraints
+          navigator.mediaDevices.getUserMedia(constraints)
+            .then((stream) => {
+              videoElement.srcObject = stream;
+              videoElement.play();
+              currentStream = stream;
+            })
+            .catch((error) => {
+              console.error('Error switching camera: ', error);
+            });
+        }
+      });
+
+      // Timer to increment frame count every 500 milliseconds
+      setInterval(() => {
+        frameCount++;
+        canvas.dataset.framecount = frameCount;
+      }, 500);
+
+      // Attach the video element to the document
+      document.body.appendChild(videoElement);
+    } else {
+      console.error('WebRTC is not supported in this browser.');
+    }
+  </script>
+</body>
+
+</html>
