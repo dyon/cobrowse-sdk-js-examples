@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript">
+    var urlParams = new URLSearchParams(window.location.search);
+
+    (function(w,t,c,p,s,e){p=new Promise(function(r){w[c]={client:function(){if(!s){
+    s=document.createElement(t);s.src='https://js.cobrowse.io/CobrowseIO.js';s.async=1;
+    e=document.getElementsByTagName(t)[0];e.parentNode.insertBefore(s,e);s.onload=function()
+    {r(w[c]);};}return p;}};});})(window,'script','CobrowseIO');
+
+    // // FOR SECURITY REASONS DO NOT SET YOUR LICENSE KEY OR API USING QUERY PARAMETERS IN YOUR OWN APPLICATION
+    CobrowseIO.license = urlParams.get('license') || 'trial'; // change to your license key
+    CobrowseIO.api = urlParams.get('api') || 'https://api.cobrowse.io';
+
+    CobrowseIO.client().then(function(){
+      if (CobrowseIO.currentSession) {
+        CobrowseIO.start({allowIFrameStart:true});
+      }
+    });
+
+    // generateSupportCode();
+    function generateSupportCode() {
+      // ensure Cobrowse is loaded
+      CobrowseIO.client().then(function() {
+        // start the CobrowseSDK only when this function is called
+        CobrowseIO.start().then(function() {
+          // create a code a display it to the user
+          CobrowseIO.createSessionCode().then(function(code) {
+            document.getElementById('generate-button').style.display = 'none';
+            document.getElementById('support-code').innerHTML = '<p>Your Support Code is ' + code.substr(0, 3) + '-' + code.substr(3, 6) + '</p>';
+            CobrowseIO.currentSession.on('ended', function () {
+              onExpire();
+            })
+          });
+        });
+      });
+    }
+
+    function onExpire() {
+      console.log('Support code expired.');
+      document.getElementById('support-code').innerHTML = '<p>Support Code expired.</p>';
+      document.getElementById('generate-button').style.display = 'inline-block';
+    }
+</script>
+  <style>
+    body {
+      font-family: 'Lato', Arial, "Helvetica Neue", Helvetica, sans-serif;
+      line-height: 24px;
+      color: #555;
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    button {
+      height: 46px;
+      padding: 10px 16px;
+      font-size: 18px;
+      line-height: 1.3333333;
+      border-radius: 6px;
+      background-color: #7e9bed;
+      border-color: #7e9bed;
+      color: #fff;
+      outline: none;
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: normal;
+      text-align: center;
+      vertical-align: middle;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="text-align: center;">
+    <div style="height: 40px;"></div>
+    <div id="support-code"></div>
+    <button id="generate-button" onclick="generateSupportCode();">Generate Support Code</button>    
+  </div>
+  
+</body>
+
+</html>
