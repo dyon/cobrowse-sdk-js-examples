@@ -27,7 +27,7 @@
             CobrowseIO.confirmSession = function (session) {
                 // instead of a session confirmation prompt we will switch
                 // the session into full device mode
-                return session.setFullDevice(true);
+                return session.setFullDevice('requested');
             }
             CobrowseIO.start();
         });
