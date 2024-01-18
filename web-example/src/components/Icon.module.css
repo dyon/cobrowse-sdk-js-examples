@@ -1,0 +1,9 @@
+:root {
+  --icon-size: 1.5rem;
+  --icon-color: inherit;
+}
+
+.icon {
+  font-size: var(--icon-size);
+  color: var(--icon-color);
+}

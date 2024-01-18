@@ -1,0 +1,59 @@
+/*noinspection CssInvalidAtRule*/
+@import-normalize;
+
+/* Screen sizes */
+/* sm: '480px'  */
+/* md: '740px'  */
+/* lg: '1200px' */
+
+/* Variables */
+:root {
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-size-xl: 22px;
+  --font-size-xxl: 28px;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+  --font-weight-light: 300;
+
+  --color-primary: #6100ff;
+  --color-secondary: #dcf66b;
+  --color-accent: #f7f7f7;
+  --color-borders: #cccccc;
+  --color-background: #f7f6ff;
+
+  --container-spacing: 10px;
+}
+
+body {
+  margin: 0;
+  position: fixed;
+  overflow: hidden;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  line-height: normal;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+  /*position: fixed;*/
+  /*inset: 0;*/
+  /*overflow: hidden;*/
+  flex: 1 1;
+  min-height: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: var(--font-weight-regular);
+}
