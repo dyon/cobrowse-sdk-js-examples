@@ -32,7 +32,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: (
-              <Dashboard/>
+              <Dashboard />
             ),
             loader: dashboardLoader,
           },
@@ -87,7 +87,8 @@ const App = () => {
       license: getQueryParam('license'),
       redactedViews: getQueryParam('redacted_views'),
       capabilities: getQueryParam('capabilities'),
-      customData: getQueryParam('custom_data')
+      customData: getQueryParam('custom_data'),
+      customSessionControls: getQueryParam('custom_session_controls')
     })
   }, [start])
 

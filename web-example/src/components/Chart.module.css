@@ -1,6 +1,16 @@
 .wrapper {
-  position: relative;
   height: 100%;
+  width: 100%;
+
+  @media screen and (min-width: 740px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.chart {
+  position: relative;
   width: 100%;
 
   @media screen and (min-width: 740px) {

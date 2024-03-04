@@ -4,7 +4,7 @@
   align-items: center;
   padding: var(--container-spacing);
   border-bottom: 1px solid var(--color-borders);
-  color: #000000 !important;
+  --color-link: var(--color-text);
 
   &:last-child {
     border-bottom: none;

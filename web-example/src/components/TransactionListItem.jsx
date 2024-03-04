@@ -13,10 +13,10 @@ const TransactionListItem = ({ transaction }) => {
           <Icon name={transaction.icon} />
         </div>
         <div className={styles.description}>
-          <Redacted>
+          <Redacted autoWidth>
             <div className={styles.title}>{transaction.title}</div>
           </Redacted>
-          <Redacted>
+          <Redacted autoWidth>
             <div className={styles.date}>{transaction.formattedDate}</div>
           </Redacted>
         </div>

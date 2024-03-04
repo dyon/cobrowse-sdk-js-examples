@@ -1,6 +1,6 @@
 import throttle from 'lodash/throttle'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Outlet, useLoaderData } from 'react-router-dom'
+import { Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import Main from '../../components/Main'
 import Sidebar from '../../components/Sidebar'
 import TransactionList from '../../components/TransactionList'
@@ -14,6 +14,7 @@ export const loader = async () => {
 
 const DashboardLayout = () => {
   const { transactions } = useLoaderData()
+  const { pathname } = useLocation()
   const sidebarRef = useRef()
   const scrollableAreaRef = useRef()
   const previousYPositionRef = useRef(0)
@@ -79,7 +80,7 @@ const DashboardLayout = () => {
       <Main sidebarExpanded={sidebarExpanded}>
         <Outlet />
       </Main>
-      <Sidebar ref={sidebarRef}>
+      <Sidebar ref={sidebarRef} className={pathname.includes('transactions/') ? 'hide' : ''}>
         <TransactionList
           transactions={transactions}
           sidebarExpanded={sidebarExpanded}

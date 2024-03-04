@@ -88,13 +88,15 @@ const Chart = ({ categories, currentMonthTransactionsByCategory, currentMonthSpe
 
   return (
     <div className={styles.wrapper}>
-      <canvas ref={chartRef}></canvas>
-      <div className={styles.spent}>
-        Spent
-        <Redacted>
-          <span className={styles.amount}>{formatAmount(currentMonthSpentAmount)}</span>
-        </Redacted>
-        this month
+      <div className={styles.chart}>
+        <canvas ref={chartRef}></canvas>
+        <div className={styles.spent}>
+          Spent
+          <Redacted>
+            <span className={styles.amount}>{formatAmount(currentMonthSpentAmount)}</span>
+          </Redacted>
+          this month
+        </div>
       </div>
     </div>
   );

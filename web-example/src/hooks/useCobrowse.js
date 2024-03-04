@@ -24,7 +24,7 @@ export const useCobrowse = () => {
     }
   }, [])
 
-  const start = useCallback(({ api, license, redactedViews, customData, capabilities } = {}) => {
+  const start = useCallback(({ api, license, redactedViews, customData, capabilities, customSessionControls = false } = {}) => {
     if (cobrowseStarted.current) {
       return
     }
@@ -37,13 +37,36 @@ export const useCobrowse = () => {
       CobrowseIO.capabilities = capabilities
     }
 
-    console.log({ api, license, redactedViews, customData, capabilities })
+    console.log({ api, license, redactedViews, customData, capabilities, customSessionControls })
 
     CobrowseIO.license = license || 'trial'
     CobrowseIO.redactedViews = redactedViews || ['.redacted']
     CobrowseIO.customData = customData || {}
-    CobrowseIO.showSessionControls = () => false
-    CobrowseIO.hideSessionControls = () => false
+
+    if (customSessionControls) {
+      CobrowseIO.showSessionControls = () => true
+      CobrowseIO.hideSessionControls = () => true
+    } else {
+      const button = document.createElement('div');
+
+      button.className = '__cbio_ignored end-session-button';
+      button.textContent = 'End Cobrowse Session';
+      button.addEventListener('click', () => {
+        if (CobrowseIO.currentSession) {
+          CobrowseIO.currentSession.end();
+        }
+      });
+
+      CobrowseIO.showSessionControls = () => {
+        document.body.appendChild(button);
+      }
+
+      CobrowseIO.hideSessionControls = () => {
+        if (button.parentNode) {
+          button.parentNode.removeChild(button);
+        }
+      }
+    }
 
     CobrowseIO.start()
 

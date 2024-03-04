@@ -1,4 +1,8 @@
+:root {
+  --color-link: #ffffff;
+}
+
 .link {
-  color: #ffffff;
+  color: var(--color-link);
   text-decoration: none;
 }
