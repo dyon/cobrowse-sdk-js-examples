@@ -15,6 +15,8 @@ export const useCobrowse = () => {
       setCobrowsing(false)
     }
 
+    window.CobrowseIO = CobrowseIO
+
     CobrowseIO.on('session.updated', onCobrowseStart)
     CobrowseIO.on('session.ended', onCobrowseEnd)
 
@@ -50,7 +52,7 @@ export const useCobrowse = () => {
       const button = document.createElement('div');
 
       button.className = '__cbio_ignored end-session-button';
-      button.textContent = 'End Cobrowse Session';
+      button.innerHTML = 'End <span>Cobrowse </span>Session';
       button.addEventListener('click', () => {
         if (CobrowseIO.currentSession) {
           CobrowseIO.currentSession.end();
