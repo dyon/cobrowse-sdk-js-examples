@@ -54,7 +54,7 @@ const generateCurrentMonthTransactions = () => {
   const transactions = []
 
   categoryKeys.forEach((categoryKey) => {
-    transactions.push(generateTransaction(categoryKey, startOfMonth(new Date()), endOfMonth(new Date())))
+    transactions.push(generateTransaction(categoryKey, startOfMonth(new Date()), new Date()))
   })
 
   return transactions
