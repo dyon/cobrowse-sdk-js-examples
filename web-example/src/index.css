@@ -68,6 +68,10 @@ code {
   }
 }
 
+.hide {
+  display: none;
+}
+
 #root {
   /*position: fixed;*/
   /*inset: 0;*/
