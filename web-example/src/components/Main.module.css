@@ -1,5 +1,5 @@
 .main {
-  min-height: 75vh;
+  min-height: 50%;
   height: 100%;
   overflow: hidden;
   transition: min-height 0.2s ease-in-out;

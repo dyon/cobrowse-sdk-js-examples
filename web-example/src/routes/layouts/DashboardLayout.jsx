@@ -62,17 +62,17 @@ const DashboardLayout = () => {
       setSidebarExpanded((expanded) => !expanded)
     }
 
-    window.addEventListener('wheel', throttledOnScroll, { passive: true })
-    sidebar?.addEventListener('touchstart', onTouchStart, { passive: true })
-    sidebar?.addEventListener('touchmove', throttledOnTouchMove, { passive: true })
-    sidebar?.addEventListener('click', onClick, { passive: true })
-
-    return () => {
-      window.removeEventListener('wheel', throttledOnScroll)
-      sidebar?.removeEventListener('touchstart', onTouchStart)
-      sidebar?.removeEventListener('touchmove', throttledOnTouchMove)
-      sidebar?.removeEventListener('click', onClick)
-    }
+    // window.addEventListener('wheel', throttledOnScroll, { passive: true })
+    // sidebar?.addEventListener('touchstart', onTouchStart, { passive: true })
+    // sidebar?.addEventListener('touchmove', throttledOnTouchMove, { passive: true })
+    // sidebar?.addEventListener('click', onClick, { passive: true })
+    //
+    // return () => {
+    //   window.removeEventListener('wheel', throttledOnScroll)
+    //   sidebar?.removeEventListener('touchstart', onTouchStart)
+    //   sidebar?.removeEventListener('touchmove', throttledOnTouchMove)
+    //   sidebar?.removeEventListener('click', onClick)
+    // }
   }, [throttledOnScroll, throttledOnTouchMove])
 
   return (

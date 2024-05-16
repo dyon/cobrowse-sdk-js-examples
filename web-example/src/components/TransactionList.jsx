@@ -6,7 +6,7 @@ const TransactionList = forwardRef(({ transactions, sidebarExpanded = false }, r
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.heading}>Transactions</h2>
-      <div className={`${styles.list} ${sidebarExpanded ? styles.enableScrolling : '' }`} ref={ref}>
+      <div className={styles.list} ref={ref}>
         {Object.keys(transactions).map((month) => (
           <div key={month}>
             <div className={styles.month}>

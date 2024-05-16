@@ -9,6 +9,7 @@
 /* Variables */
 :root {
   --font-size-base: 16px;
+  --font-size-xs: 12px;
   --font-size-sm: 14px;
   --font-size-lg: 18px;
   --font-size-xl: 22px;
