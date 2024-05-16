@@ -1,8 +1,8 @@
 import styles from './Main.module.css'
 
-const Main = ({ sidebarExpanded = false, children }) => {
+const Main = ({ children }) => {
   return (
-    <main className={`${styles.main} ${sidebarExpanded ? styles.shrink : ''}`}>
+    <main className={styles.main}>
       {children}
     </main>
   )

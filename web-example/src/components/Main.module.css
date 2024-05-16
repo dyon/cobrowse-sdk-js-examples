@@ -2,19 +2,10 @@
   min-height: 50%;
   height: 100%;
   overflow: hidden;
-  transition: min-height 0.2s ease-in-out;
   padding: var(--container-spacing);
   background-color: var(--color-background);
-
-  @media (prefers-reduced-motion) {
-    transition: none;
-  }
 
   @media screen and (min-width: 740px) {
     width: 100%;
   }
-}
-
-.shrink {
-  min-height: 20vh;
 }

@@ -2,7 +2,7 @@ import TransactionListItem from './TransactionListItem'
 import styles from './TransactionList.module.css'
 import { forwardRef } from 'react'
 
-const TransactionList = forwardRef(({ transactions, sidebarExpanded = false }, ref) => {
+const TransactionList = forwardRef(({ transactions }, ref) => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.heading}>Transactions</h2>
