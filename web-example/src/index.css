@@ -68,8 +68,12 @@ code {
   }
 }
 
-.hide {
+.hide-on-mobile {
   display: none;
+
+  @media screen and (min-width: 740px) {
+    display: block;
+  }
 }
 
 #root {

@@ -80,7 +80,7 @@ const DashboardLayout = () => {
       <Main sidebarExpanded={sidebarExpanded}>
         <Outlet />
       </Main>
-      <Sidebar ref={sidebarRef} className={pathname.includes('transactions/') ? 'hide' : ''}>
+      <Sidebar ref={sidebarRef} className={pathname.includes('transactions/') ? 'hide-on-mobile' : ''}>
         <TransactionList
           transactions={transactions}
           sidebarExpanded={sidebarExpanded}
