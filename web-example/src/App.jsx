@@ -8,13 +8,15 @@ import DashboardLayout, { loader as dashboardLayoutLoader } from './routes/layou
 import Login from './routes/Login'
 import Present from './routes/Present'
 import Profile from './routes/Profile'
-import Root from './routes/Root'
+import Root, { loader as rootLoader } from './routes/Root'
 import Transaction, { loader as transactionLoader } from './routes/Transaction'
 import { getQueryParam } from './utils/getQueryParam'
 
 const router = createBrowserRouter([
   {
     path: '/',
+    loader: rootLoader,
+    id: 'root',
     element: (
       <AuthProvider>
         <Root />
