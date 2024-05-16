@@ -77,10 +77,10 @@ const DashboardLayout = () => {
 
   return (
     <>
-      <Main sidebarExpanded={sidebarExpanded}>
+      <Main>
         <Outlet />
       </Main>
-      <Sidebar ref={sidebarRef} className={pathname.includes('transactions/') ? 'hide-on-mobile' : ''}>
+      <Sidebar ref={sidebarRef} expanded={sidebarExpanded} className={pathname.includes('transactions/') ? 'hide-on-mobile' : ''}>
         <TransactionList
           transactions={transactions}
           sidebarExpanded={sidebarExpanded}

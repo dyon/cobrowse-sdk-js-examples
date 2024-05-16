@@ -68,7 +68,7 @@ const Chart = ({ categories, currentMonthTransactionsByCategory, currentMonthSpe
         maintainAspectRatio: false,
         hoverOffset: 30,
         layout: {
-          padding: 40
+          padding: 20
         },
         transitions: {
           show: {

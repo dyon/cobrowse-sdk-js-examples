@@ -1,5 +1,4 @@
 .main {
-  min-height: 75vh;
   height: 100%;
   overflow: hidden;
   transition: min-height 0.2s ease-in-out;
@@ -13,8 +12,4 @@
   @media screen and (min-width: 740px) {
     width: 100%;
   }
-}
-
-.shrink {
-  min-height: 20vh;
 }
