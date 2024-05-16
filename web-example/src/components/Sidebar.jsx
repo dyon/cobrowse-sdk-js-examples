@@ -1,11 +1,9 @@
 import styles from './Sidebar.module.css'
 import { forwardRef } from 'react'
 
-const Sidebar = forwardRef(({ expanded = false, className, children }, ref) => {
-  const isMobile = !window.matchMedia('(min-width: 740px)').matches
-
+const Sidebar = forwardRef(({ className, children }, ref) => {
   return (
-    <nav className={`${styles.sidebar} ${expanded && isMobile ? styles.expanded : ''} ${className}`} ref={ref}>
+    <nav className={`${styles.sidebar} ${className}`} ref={ref}>
       {children}
     </nav>
   )

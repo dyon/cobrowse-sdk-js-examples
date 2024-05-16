@@ -5,13 +5,6 @@
   border-top: 1px solid var(--color-borders);
   height: 100%;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 60%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  transition: top 0.2s ease-in-out;
 
   @media screen and (min-width: 740px) {
     border-radius: 0;
@@ -21,10 +14,4 @@
     order: -9999;
     min-width: 400px;
   }
-}
-
-.expanded {
-  --distance-from-top: 130px;
-  top: var(--distance-from-top);
-  height: calc(100% - var(--distance-from-top));
 }
