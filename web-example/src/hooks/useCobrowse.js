@@ -70,7 +70,7 @@ export const useCobrowse = () => {
       }
     }
 
-    CobrowseIO.start()
+    CobrowseIO.start({ allowIFrameStart: true })
 
     cobrowseStarted.current = true
   }, [])
