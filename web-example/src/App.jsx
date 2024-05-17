@@ -79,7 +79,7 @@ const router = createBrowserRouter([
     )
   }
 ], {
-  basename: '/web-example'
+  basename: '/web-example/demo'
 })
 
 const App = () => {
