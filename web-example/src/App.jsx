@@ -78,7 +78,9 @@ const router = createBrowserRouter([
       </AuthProvider>
     )
   }
-])
+], {
+  basename: '/web-example'
+})
 
 const App = () => {
   const { start } = useCobrowse()
