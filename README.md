@@ -4,6 +4,18 @@ All demo pages support the ability to pass your license key into them by appendi
 
 For security reasons **do not** allow for the license key to be set via a query parameter in your own application.
 
+## Full web demo
+
+Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/web-example/demo](https://cobrowse-sdk-js-examples.cbrws.io/web-example/demo)
+
+This is our example project of using Cobrowse IO Web SDK in a realistic project.
+
+The demo accepts any value for username and password and can be skipped by including `?demo=true` as a query parameter.
+
+Using the demo page you can include your own `?licnese` key and `?api` via query parameters if you wish to use your own account or instance.
+
+To run this locally please see [https://cobrowse-sdk-js-examples.cbrws.io/web-example](https://cobrowse-sdk-js-examples.cbrws.io/web-example).
+
 ## Standalone support code example
 Demo page at [https://cobrowse-sdk-js-examples.cbrws.io/standalone-support-code.html](https://cobrowse-sdk-js-examples.cbrws.io/standalone-support-code.html)
 
