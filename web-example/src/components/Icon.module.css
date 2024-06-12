@@ -5,7 +5,7 @@
 }
 
 .icon {
-  font-size: var(--icon-size);
+  height: var(--icon-size);
+  width: var(--icon-size);
   color: var(--icon-color);
-  font-variation-settings: 'FILL' 0, 'wght' var(--icon-weight), 'GRAD' 0, 'opsz' 24;
 }
