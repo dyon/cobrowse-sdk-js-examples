@@ -2,7 +2,9 @@ import ChartJs from 'chart.js/auto'
 import { useEffect, useRef } from 'react'
 import styles from './Chart.module.css'
 import { formatAmount } from '../utils/formatAmount'
+import Icon from './Icon'
 import Redacted from './Redacted'
+import { renderToString } from 'react-dom/server'
 
 const Chart = ({ categories, currentMonthTransactionsByCategory, currentMonthSpentAmount }) => {
   const chartRef = useRef()
@@ -12,40 +14,41 @@ const Chart = ({ categories, currentMonthTransactionsByCategory, currentMonthSpe
       return
     }
 
+    let imageCache = {}
+
     const iconPlugin = {
       id: 'iconPlugin',
       afterDraw: (chart) => {
-        if (chart.config.type === 'doughnut') {
-          const ctx = chart.ctx
+        const { ctx } = chart
 
-          ctx.save()
-          ctx.textAlign = 'center'
-          ctx.textBaseline = 'middle'
-          ctx.fillStyle = 'white'
+        chart.data.datasets.forEach((dataset, datasetIndex) => {
+          const datasetMeta = chart.getDatasetMeta(datasetIndex)
 
-          chart.data.datasets.forEach((dataset, datasetIndex) => {
-            const datasetMeta = chart.getDatasetMeta(datasetIndex)
+          datasetMeta.data.forEach((datapoint, index) => {
+            const x = datapoint.tooltipPosition().x
+            const y = datapoint.tooltipPosition().y
+            const categoryName = chart.data.labels[index]
+            const iconSize = ((datapoint.outerRadius - datapoint.innerRadius) / 2) - 10
+            const iconName = categories[categoryName].icon
+            let img
 
-            datasetMeta.data.forEach((arc, index) => {
-              const angle = (arc.startAngle + arc.endAngle) / 2
-              const radius = (arc.innerRadius + arc.outerRadius) / 2
-              const iconSize = (arc.outerRadius - arc.innerRadius) / 2
+            if (imageCache[iconName]) {
+              img = imageCache[iconName]
+            } else {
+              // We render the Icon component to an SVG string, then convert it to base64
+              // before we can draw it on the canvas
+              const svgString = renderToString(<Icon name={iconName} width='100px' fill='#ffffff' />)
+              const base64 = btoa(svgString)
 
-              ctx.font = `${iconSize}px Material Symbols Outlined`
+              img = new Image()
+              img.src = `data:image/svg+xml;base64,${base64}`
+              imageCache[iconName] = img
+            }
 
-              const posX = arc.x + radius * Math.cos(angle)
-              const posY = arc.y + radius * Math.sin(angle)
-
-              const categoryName = chart.data.labels[index]
-              const iconName = categories[categoryName].icon
-
-              ctx.fillText(iconName, posX, posY)
-            })
+            ctx.drawImage(img, x - (iconSize / 2), y - (iconSize / 2), iconSize, iconSize)
           })
-
-          ctx.restore()
-        }
-      }
+        })
+      },
     }
     const ctx = chartRef.current?.getContext('2d');
     const data = Object.values(currentMonthTransactionsByCategory).map((transactions) => Object.values(transactions).reduce((acc, transaction) => acc + transaction.amount, 0))
