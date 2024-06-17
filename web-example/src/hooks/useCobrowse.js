@@ -42,7 +42,7 @@ export const useCobrowse = () => {
     console.log({ api, license, redactedViews, customData, capabilities, customSessionControls })
 
     CobrowseIO.license = license || 'trial'
-    CobrowseIO.redactedViews = redactedViews || ['.redacted']
+    CobrowseIO.redactedViews = redactedViews || ['.redacted', '#title', '#amount', '#subtitle', '#map']
     CobrowseIO.customData = customData || {}
 
     if (customSessionControls) {
