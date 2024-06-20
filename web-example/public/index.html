@@ -49,6 +49,12 @@
       }
     </style>
     <title>Cobrowse demo</title>
+    <script>
+      (function(w,t,c,p,s,e){p=new Promise(function(r){w[c]={client:function(){if(!s){
+          s=document.createElement(t);s.src='https://js.cobrowse.io/CobrowseIO.js';s.async=1;
+          e=document.getElementsByTagName(t)[0];e.parentNode.insertBefore(s,e);s.onload=function()
+          {r(w[c]);};}return p;}};});})(window,'script','CobrowseIO');
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -58,7 +64,9 @@
       const params = new URLSearchParams(window.location.search)
       const integration = params.get('integration')
 
-      console.log(`Loading ${integration}...`)
+      if (integration) {
+        console.log(`Loading ${integration}...`)
+      }
 
       if (integration === 'zendesk') {
         const script = document.createElement('script')
