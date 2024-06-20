@@ -1,11 +1,26 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import CobrowseIO from 'cobrowse-sdk-js'
 
 export const useCobrowse = () => {
-  const [cobrowsing, setCobrowsing] = useState(() => CobrowseIO.currentSession?.isActive())
+  const [CobrowseIO, setCobrowseIO] = useState()
+  const [cobrowsing, setCobrowsing] = useState(() => CobrowseIO?.currentSession?.isActive())
   const cobrowseStarted = useRef(false)
 
   useEffect(() => {
+    const onCobrowseLoaded = async () => {
+      await window.CobrowseIO.client()
+
+      setCobrowseIO(window.CobrowseIO)
+    }
+
+    onCobrowseLoaded()
+  }, [])
+
+  useEffect(() => {
+    // Wait until CobrowseIO is loaded
+    if (!CobrowseIO) {
+      return
+    }
+
     const onCobrowseStart = (session) => {
       if (session.isActive()) {
         setCobrowsing(true)
@@ -15,19 +30,17 @@ export const useCobrowse = () => {
       setCobrowsing(false)
     }
 
-    window.CobrowseIO = CobrowseIO
-
     CobrowseIO.on('session.updated', onCobrowseStart)
     CobrowseIO.on('session.ended', onCobrowseEnd)
 
     return () => {
-      CobrowseIO.off('session.updated', onCobrowseStart)
-      CobrowseIO.off('session.ended', onCobrowseEnd)
+      CobrowseIO?.off('session.updated', onCobrowseStart)
+      CobrowseIO?.off('session.ended', onCobrowseEnd)
     }
-  }, [])
+  }, [CobrowseIO])
 
   const start = useCallback(({ api, license, redactedViews, customData, capabilities, customSessionControls = false } = {}) => {
-    if (cobrowseStarted.current) {
+    if (!CobrowseIO || cobrowseStarted.current) {
       return
     }
 
@@ -38,8 +51,6 @@ export const useCobrowse = () => {
     if (Array.isArray(capabilities)) {
       CobrowseIO.capabilities = capabilities
     }
-
-    console.log({ api, license, redactedViews, customData, capabilities, customSessionControls })
 
     CobrowseIO.license = license || 'trial'
     CobrowseIO.redactedViews = redactedViews || ['.redacted', '#title', '#amount', '#subtitle', '#map']
@@ -73,7 +84,7 @@ export const useCobrowse = () => {
     CobrowseIO.start({ allowIFrameStart: true })
 
     cobrowseStarted.current = true
-  }, [])
+  }, [CobrowseIO])
 
   const stop = () => {
     CobrowseIO.stop()
