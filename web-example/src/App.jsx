@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             element: (
               <Dashboard />
             ),
-            loader: dashboardLoader,
+            loader: dashboardLoader
           },
           {
             path: 'transactions/:id',
@@ -64,8 +64,8 @@ const router = createBrowserRouter([
             path: 'present',
             element: (
               <Present />
-            ),
-          },
+            )
+          }
         ]
       }
     ]
@@ -92,7 +92,8 @@ const App = () => {
       redactedViews: getQueryParam('redacted_views'),
       capabilities: getQueryParam('capabilities'),
       customData: getQueryParam('custom_data'),
-      customSessionControls: getQueryParam('custom_session_controls')
+      customSessionControls: getQueryParam('custom_session_controls'),
+      allowHeadless: getQueryParam('allow_headless')
     })
   }, [start])
 
