@@ -12,7 +12,7 @@ This is our example project of using Cobrowse IO Web SDK in a realistic project.
 
 The demo accepts any value for username and password and can be skipped by including `?demo=true` as a query parameter.
 
-Using the demo page you can include your own `?licnese` key and `?api` via query parameters if you wish to use your own account or instance.
+Using the demo page you can include your own `?license` key and `?api` via query parameters if you wish to use your own account or instance.
 
 To run this locally please see [https://cobrowse-sdk-js-examples.cbrws.io/web-example](https://cobrowse-sdk-js-examples.cbrws.io/web-example).
 
