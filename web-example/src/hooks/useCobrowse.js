@@ -55,7 +55,7 @@ export const useCobrowse = () => {
     CobrowseIO.license = license || 'trial'
     CobrowseIO.redactedViews = redactedViews || ['.redacted', '#title', '#amount', '#subtitle', '#map']
     CobrowseIO.customData = customData || {}
-    CobrowseIO.registration = registration
+    CobrowseIO.registration = (registration !== false)
 
     if (customSessionControls) {
       CobrowseIO.showSessionControls = () => true
