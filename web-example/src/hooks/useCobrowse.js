@@ -55,6 +55,7 @@ export const useCobrowse = () => {
     CobrowseIO.license = license || 'trial'
     CobrowseIO.redactedViews = redactedViews || ['.redacted', '#title', '#amount', '#subtitle', '#map']
     CobrowseIO.customData = customData || {}
+    CobrowseIO.pdfLinks = ['*.pdf']
 
     if (customSessionControls) {
       CobrowseIO.showSessionControls = () => true
