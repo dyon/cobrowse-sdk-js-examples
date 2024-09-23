@@ -9,6 +9,8 @@
 
 ## Query Parameters
 
-The web demo can be used with api, license, registration and custom_data parameters. Different integrations are also supported out of the box: salesforce, zendesk, genesys, freshdesk, talkdesk.
+The web demo can be used with `api`, `license`, `registration` and `custom_data parameters`. For security reasons do not allow for the `license` key or `api` to be set via a query parameter in your own application.
+
+Different integrations are also supported out of the box with the `integration` parameter: salesforce, zendesk, genesys, freshdesk, talkdesk.
 
 Example URL: [https://cobrowse-sdk-js-examples.cbrws.io/web-example/demo/?api=https://cobrowse.io&license=Xskn6AwiVgzBcQ&demo=true&custom_data=demo_id:219723078,device_name:Trial%20Website,user_email:web@example.com&integration=salesforce](https://cobrowse-sdk-js-examples.cbrws.io/web-example/demo/?api=https://cobrowse.io&license=Xskn6AwiVgzBcQ&demo=true&custom_data=demo_id:219723078,device_name:Trial%20Website,user_email:web@example.com&integration=salesforce)
