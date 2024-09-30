@@ -20,7 +20,7 @@ const ProfileView = ({ actions }) => {
           </div>
         </Redacted>
         <div className={styles.accountSummaryPdf}>
-          <LinkButton to='/account_summary.pdf' target='_blank'>
+          <LinkButton to='/account_summary.pdf' variant='secondary' target='_blank'>
             View account summary
           </LinkButton>
         </div>

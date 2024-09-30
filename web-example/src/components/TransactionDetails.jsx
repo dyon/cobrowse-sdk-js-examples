@@ -1,0 +1,74 @@
+import { useEffect } from 'react'
+import styles from './TransactionDetails.module.css'
+import { formatAmount } from '../utils/formatAmount'
+import { formatDate } from '../utils/formatDate'
+import Icon from './Icon'
+import LinkButton from './LinkButton' // Change this import
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+
+const TransactionDetails = ({ transaction }) => {
+  useEffect(() => {
+    if (transaction) {
+      const position = new L.LatLng(51.5074, -0.1278) // Coordinates for London, UK
+      const map = L.map('map', {
+        center: position,
+        zoom: 14,
+        dragging: false,
+        touchZoom: false,
+        doubleClickZoom: false,
+        scrollWheelZoom: false,
+        boxZoom: false,
+        zoomControl: false,
+        attributionControl: false
+      })
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(map)
+
+      const markerIcon = new L.Icon({
+        iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@master/img/marker-icon-2x-violet.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      })
+
+      L.marker(position, { icon: markerIcon }).addTo(map)
+
+      return () => {
+        map.remove()
+      }
+    }
+  }, [transaction])
+
+  if (!transaction) {
+    return <div>Loading...</div>
+  }
+
+  return (
+    <div className={styles.receipt}>
+      <div className={styles.header}>
+        <div className={styles.details}>
+          <h1 className={styles.title}>{transaction.title}</h1>
+          <h2 className={styles.amount}>{formatAmount(transaction.amount)}</h2>
+          <div className={styles.subtitle}>{formatDate(transaction.date)}</div>
+        </div>
+        <div className={styles.category}>
+          <Icon name={transaction.icon} style={{ color: transaction.color }} />
+        </div>
+      </div>
+      <div id='map' className={styles.map} />
+      <div className={styles.actionContainer}>
+        <LinkButton to='/fraud'>
+          Don't recognise this?
+        </LinkButton>
+        <LinkButton to={transaction.contactUrl} target='_blank' appendQueryString={false}>
+          Contact us
+        </LinkButton>
+      </div>
+    </div>
+  )
+}
+
+export default TransactionDetails

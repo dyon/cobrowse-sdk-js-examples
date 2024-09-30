@@ -1,0 +1,70 @@
+.receipt {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4B5563;
+  margin-bottom: 0.25rem;
+}
+
+.amount {
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.category {
+  --icon-size: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.map {
+  width: 100%;
+  padding: 1rem;
+  height: 24rem;
+  margin-bottom: 1rem;
+}
+
+.actionContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.fraudButton, .contactUsButton {
+  background-color: #6D28D9;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+
+.fraudButton:hover, .contactUsButton:hover {
+  background-color: #5B21B6;
+}
