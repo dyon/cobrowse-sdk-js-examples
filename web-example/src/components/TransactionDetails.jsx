@@ -51,8 +51,8 @@ const TransactionDetails = ({ transaction }) => {
       <div className={styles.header}>
         <div className={styles.details}>
           <h1 className={styles.title}>{transaction.title}</h1>
-          <h2 className={styles.amount}>{formatAmount(transaction.amount)}</h2>
-          <div className={styles.subtitle}>{formatDate(transaction.date)}</div>
+          <p className={styles.amount}>{formatAmount(transaction.amount)}</p>
+          <p className={styles.subtitle}>{formatDate(transaction.date)}</p>
         </div>
         <div className={styles.category}>
           <Icon name={transaction.icon} style={{ color: transaction.color }} />

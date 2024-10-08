@@ -1,6 +1,5 @@
 .receipt {
   width: 100%;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -15,25 +14,24 @@
 .details {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: #4B5563;
-  margin-bottom: 0.25rem;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
 }
 
 .amount {
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
   color: var(--color-primary);
-  margin-bottom: 0.25rem;
+  margin: 0;
 }
 
 .subtitle {
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text);
-  margin-bottom: 0.25rem;
+  margin: 0;
 }
 
 .category {
@@ -52,19 +50,6 @@
 .actionContainer {
   display: flex;
   justify-content: center;
-  margin: 1rem 0;
   gap: 1rem;
 }
 
-.fraudButton, .contactUsButton {
-  background-color: #6D28D9;
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  text-decoration: none;
-}
-
-.fraudButton:hover, .contactUsButton:hover {
-  background-color: #5B21B6;
-}
