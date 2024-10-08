@@ -40,7 +40,7 @@ export const useCobrowse = () => {
     }
   }, [CobrowseIO])
 
-  const start = useCallback(({ api, license, redactedViews, customData, capabilities, allowHeadless = false, customSessionControls = false } = {}) => {
+  const start = useCallback(({ api, license, redactedViews, customData, capabilities, sessionCode, allowHeadless = false, customSessionControls = false, registration = true } = {}) => {
     if (!CobrowseIO || cobrowseStarted.current) {
       return
     }
@@ -56,6 +56,7 @@ export const useCobrowse = () => {
     CobrowseIO.license = license || 'trial'
     CobrowseIO.redactedViews = redactedViews || ['.redacted', '#title', '#amount', '#subtitle', '#map']
     CobrowseIO.customData = customData || {}
+    CobrowseIO.registration = (registration !== false)
     CobrowseIO.pdfLinks = ['*.pdf']
     CobrowseIO.universalLinks = Object.values(categories)
       .flatMap(category => category.businesses)
@@ -87,8 +88,11 @@ export const useCobrowse = () => {
       }
     }
 
-    CobrowseIO.start({ allowIFrameStart: true, allowHeadless })
-
+    CobrowseIO.start({ allowIFrameStart: true, allowHeadless }).then(() => {
+      if (sessionCode) {
+        CobrowseIO.getSession(sessionCode)
+      }
+    })
     cobrowseStarted.current = true
   }, [CobrowseIO])
 
