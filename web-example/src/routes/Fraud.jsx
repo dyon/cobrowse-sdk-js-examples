@@ -1,13 +1,9 @@
 import FraudView from '../components/Fraud'
 
-export const loader = async ({ params }) => {
-  return { }
-}
-
-const Transaction = () => {
+const Fraud = () => {
   return (
     <FraudView />
   )
 }
 
-export default Transaction
+export default Fraud
