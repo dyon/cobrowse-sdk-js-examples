@@ -63,9 +63,11 @@ const TransactionDetails = ({ transaction }) => {
         <LinkButton to='/fraud'>
           Don't recognise this?
         </LinkButton>
-        <LinkButton to={transaction.contactUrl} target='_blank' appendQueryString={false}>
-          Contact us
-        </LinkButton>
+        {transaction.contactUrl && (
+          <LinkButton to={transaction.contactUrl} target='_blank' appendQueryString={false}>
+            Contact us
+          </LinkButton>
+        )}
       </div>
     </div>
   )

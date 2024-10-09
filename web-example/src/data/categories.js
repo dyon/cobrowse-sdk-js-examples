@@ -3,8 +3,9 @@ export const categories = {
     label: 'Childcare',
     businesses: [
       {
-        name: 'Bright Horizons',
-        url: 'https://help.brighthorizons.com/s/'
+        name: 'Bright Horizons'
+        // url: 'https://help.brighthorizons.com/s/'
+        // Reason: Fails to load on both sides
       },
       {
         name: 'KinderCare',
@@ -27,16 +28,19 @@ export const categories = {
     label: 'Groceries',
     businesses: [
       {
-        name: 'Tesco',
-        url: 'https://www.tesco.com/help/contact'
+        name: 'Tesco'
+        // url: 'https://www.tesco.com/help/contact'
+        // Reason: 403s & fails to load once 403s are resolved
       },
       {
-        name: 'Walmart',
-        url: 'https://corporate.walmart.com/about/contact'
+        name: 'Walmart'
+        // url: 'https://corporate.walmart.com/about/contact'
+        // Reason: CSS fails to load
       },
       {
-        name: 'Kroger',
-        url: 'https://www.kroger.com/hc/help/contact-us'
+        name: 'Kroger'
+        // url: 'https://www.kroger.com/hc/help/contact-us'
+        // Reason: 403s fails to load once 403s are resolved
       },
       {
         name: "Sainsbury's",
@@ -67,20 +71,23 @@ export const categories = {
         url: 'https://www.primevideo.com/help'
       },
       {
-        name: 'Hulu',
-        url: 'https://help.hulu.com/contact-us/account-and-billing'
+        name: 'Hulu'
+        // url: 'https://help.hulu.com/contact-us/account-and-billing'
+        // Reason: Error page
       },
       {
         name: 'Now TV',
         url: 'https://help.nowtv.com/article/how-to-contact-now'
       },
       {
-        name: 'Sky',
-        url: 'https://www.sky.com/help/home/sky-tv'
+        name: 'Sky'
+        // url: 'https://www.sky.com/help/home/sky-tv'
+        // Reason: 404s
       },
       {
-        name: 'Disney+',
-        url: 'https://help.disneyplus.com/contact-us'
+        name: 'Disney+'
+        // url: 'https://help.disneyplus.com/contact-us'
+        // Reason: 404s
       }
     ],
     amountRange: [300, 2000],
@@ -91,8 +98,9 @@ export const categories = {
     label: 'Utilities',
     businesses: [
       {
-        name: 'British Gas',
-        url: 'https://www.britishgas.co.uk/help-and-support/contact-us'
+        name: 'British Gas'
+        // url: 'https://www.britishgas.co.uk/help-and-support/contact-us'
+        // Reason: Causes app to throw error
       },
       {
         name: 'EDF Energy',
@@ -103,24 +111,28 @@ export const categories = {
         url: 'https://npowerbusinesssolutions.com/get-in-touch'
       },
       {
-        name: 'EON',
-        url: 'https://www.eonenergy.com/contact.html'
+        name: 'EON'
+        // url: 'https://www.eonenergy.com/contact.html'
+        // Reason: CloudFlare human verification loops
       },
       {
-        name: 'SSE',
-        url: 'https://www.sse.com/contact-us/'
+        name: 'SSE'
+        // url: 'https://www.sse.com/contact-us/'
+        // Reason: CloudFlare human verification loops
       },
       {
         name: 'Verizon',
         url: 'https://www.verizon.com/support/residential/contact-us/contactuslanding.htm'
       },
       {
-        name: 'AT&T',
-        url: 'https://www.att.com/support/contact-us/'
+        name: 'AT&T'
+        // url: 'https://www.att.com/support/contact-us/'
+        // Reason: 403s
       },
       {
-        name: 'Comcast',
-        url: 'https://www.xfinity.com/support/contact-us'
+        name: 'Comcast'
+        // url: 'https://www.xfinity.com/support/contact-us'
+        // Reason: 403s
       }
     ],
     amountRange: [6000, 20000],
