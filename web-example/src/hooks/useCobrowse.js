@@ -55,7 +55,11 @@ export const useCobrowse = () => {
 
     CobrowseIO.license = license || 'trial'
     CobrowseIO.redactedViews = redactedViews || ['.redacted', '#title', '#amount', '#subtitle', '#map']
-    CobrowseIO.customData = customData || {}
+    CobrowseIO.customData = {
+      device_name: 'Trial Website',
+      user_email: 'web@example.com',
+      ...customData
+    }
     CobrowseIO.registration = (registration !== false)
     CobrowseIO.pdfLinks = ['*.pdf']
     CobrowseIO.universalLinks = Object.values(categories)
