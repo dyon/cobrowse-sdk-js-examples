@@ -17,6 +17,12 @@ export const useCobrowse = () => {
   }, [])
 
   useEffect(() => {
+    if (CobrowseIO?.currentSession) {
+      setCobrowsing(CobrowseIO.currentSession.isActive())
+    }
+  }, [CobrowseIO?.currentSession])
+
+  useEffect(() => {
     // Wait until CobrowseIO is loaded
     if (!CobrowseIO) {
       return
