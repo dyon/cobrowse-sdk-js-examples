@@ -8,9 +8,11 @@ import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
 const TransactionDetails = ({ transaction }) => {
+  const hasCoordinates = transaction && transaction.lat && transaction.lng
+
   useEffect(() => {
-    if (transaction) {
-      const position = new L.LatLng(51.5074, -0.1278) // Coordinates for London, UK
+    if (hasCoordinates) {
+      const position = new L.LatLng(transaction.lat, transaction.lng)
       const map = L.map('map', {
         center: position,
         zoom: 14,
@@ -40,7 +42,7 @@ const TransactionDetails = ({ transaction }) => {
         map.remove()
       }
     }
-  }, [transaction])
+  }, [transaction, hasCoordinates])
 
   if (!transaction) {
     return <div>Loading...</div>
@@ -58,7 +60,7 @@ const TransactionDetails = ({ transaction }) => {
           <Icon name={transaction.icon} style={{ color: transaction.color }} />
         </div>
       </div>
-      <div id='map' className={styles.map} />
+      {hasCoordinates && <div id='map' className={styles.map} />}
       <div className={styles.actionContainer}>
         <LinkButton to='/fraud'>
           Don't recognise this?
