@@ -9,7 +9,7 @@
 
 ## Query Parameters
 
-The web demo can be used with `api`, `license`, `registration` and `custom_data parameters`. For security reasons do not allow for the `license` key or `api` to be set via a query parameter in your own application.
+The web demo can be used with `api`, `license`, `registration`, `sdk_path` and `custom_data parameters`. For security reasons **do not allow** for the `license` key, `sdk_path` or `api` to be set via a query parameter in your own application.
 
 Different integrations are also supported out of the box with the `integration` parameter: salesforce, zendesk, genesys, freshdesk, talkdesk.
 
