@@ -51,11 +51,11 @@ code {
   color: #ffffff;
   box-shadow: rgba(51, 51, 51, 0.267) 0px 2px 5px;
   cursor: pointer;
-  border-radius: 12px 0 0;
+  border-radius: 0 0 0 12px;
   background: var(--color-primary);
   position: fixed;
   z-index: 2147483647;
-  bottom: 0;
+  top: var(--header-height);
   right: 0;
 
   span {
