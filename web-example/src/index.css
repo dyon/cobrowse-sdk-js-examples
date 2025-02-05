@@ -54,7 +54,7 @@ code {
   border-radius: 0 0 0 12px;
   background: var(--color-primary);
   position: fixed;
-  z-index: 2147483647;
+  z-index: 270591;
   top: var(--header-height);
   right: 0;
 
