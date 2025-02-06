@@ -4,7 +4,7 @@ import styles from './ProfileView.module.css'
 import Redacted from './Redacted'
 
 const NAME = 'Frank Spencer'
-const EMAIL = 'f.spencer@demo.com'
+const EMAIL = 'f.spencer@example.com'
 
 const ProfileView = ({ actions }) => {
   return (
