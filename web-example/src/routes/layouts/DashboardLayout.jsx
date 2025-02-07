@@ -5,6 +5,8 @@ import Sidebar from '../../components/Sidebar'
 import TransactionList from '../../components/TransactionList'
 import { getTransactions, groupByMonth } from '../../utils/transactions'
 
+const hideMobileSidebarPaths = ['transactions/', 'fraud']
+
 export const loader = async () => {
   const transactions = groupByMonth(getTransactions())
 
@@ -15,13 +17,14 @@ const DashboardLayout = () => {
   const { transactions } = useLoaderData()
   const { pathname } = useLocation()
   const sidebarRef = useRef()
+  const hideMobileSidebar = hideMobileSidebarPaths.some(path => pathname.includes(path))
 
   return (
     <>
       <Main>
         <Outlet />
       </Main>
-      <Sidebar ref={sidebarRef} className={pathname.includes('transactions/') ? 'hide-on-mobile' : ''}>
+      <Sidebar ref={sidebarRef} className={hideMobileSidebar ? 'hide-on-mobile' : ''}>
         <TransactionList transactions={transactions} />
       </Sidebar>
     </>
