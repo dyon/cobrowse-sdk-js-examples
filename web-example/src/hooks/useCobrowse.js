@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { categories } from '../data/categories'
+import { licenseForIntegration } from '../utils/licenseForIntegration'
 
 export const useCobrowse = () => {
   const [CobrowseIO, setCobrowseIO] = useState()
@@ -46,7 +47,7 @@ export const useCobrowse = () => {
     }
   }, [CobrowseIO])
 
-  const start = useCallback(({ api, license, redactedViews, customData, capabilities, sessionCode, allowHeadless = false, customSessionControls = false, registration = true } = {}) => {
+  const start = useCallback(({ api, license, redactedViews, customData, capabilities, sessionCode, allowHeadless = false, customSessionControls = false, registration = true, integration } = {}) => {
     if (!CobrowseIO || cobrowseStarted.current) {
       return
     }
@@ -59,7 +60,12 @@ export const useCobrowse = () => {
       CobrowseIO.capabilities = capabilities
     }
 
-    CobrowseIO.license = license || 'trial'
+    const integrationLicense = integration
+      ? licenseForIntegration(integration)
+      : undefined
+
+    CobrowseIO.license = license ?? integrationLicense ?? 'trial'
+
     CobrowseIO.redactedViews = redactedViews || ['.redacted', '#title', '#amount', '#subtitle', '#map']
     CobrowseIO.customData = {
       device_name: 'Trial Website',

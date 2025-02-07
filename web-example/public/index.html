@@ -96,6 +96,14 @@
         script.async = true
 
         document.body.appendChild(script)
+      } else if (integration === 'freshchat') {
+        function initFreshChat() {
+          window.fcWidget.init({
+            token: "8b7c77ad-7f40-4fcc-b3a4-bd2df202c525",
+            host: "https://wchat.freshchat.com"
+          });
+        }
+        function initialize(i,t){var e;i.getElementById(t)?initFreshChat():((e=i.createElement("script")).id=t,e.async=!0,e.src="https://wchat.freshchat.com/js/widget.js",e.onload=initFreshChat,i.head.appendChild(e))}function initiateCall(){initialize(document,"freshchat-js-sdk")}window.addEventListener?window.addEventListener("load",initiateCall,!1):window.attachEvent("load",initiateCall,!1);
       } else if (integration === 'intercom') {
         window.intercomSettings = {
           app_id: "g7s11eec",
